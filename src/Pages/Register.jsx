@@ -1,15 +1,41 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../authprovider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+    const navigate = useNavigate()
   const { createUser, updateData } = useContext(authContext);
-//   funtion for handling create user 
+  const [accepted, setAccepted] = useState(false);
+  const handleTerms = (e) => {
+    setAccepted(e.target.checked);
+  };
+  //   funtion for handling create user
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    if(password.length <6)
+    {
+        return toast.error("Password must be at least 6 characters")
+    }
+    createUser(email, password)
+      .then((user) => {
+        updateData(name, photo);
+        toast.success("Account Created Successfully");
+        navigate('/')
+      })
+      .catch((error) => toast.error(error.message));
+      form.reset()
+  };
   return (
     <div className="mt-10 p-10 py-20 bg-blue-100 rounded-md lg:w-[35%]  mx-auto shadow-xl">
       <h2 className="text-center text-4xl font-bold">Register your account</h2>
       <hr className="border-1 border-black my-10" />
-      <form>
+      <form onSubmit={handleCreateUser}>
         <div className="mb-3">
           <label
             htmlFor="name"
@@ -76,7 +102,12 @@ const Register = () => {
         </div>
         <div className="mb-4">
           <label className="flex items-center">
-            <input name="accept" type="checkbox" className="mr-2" />
+            <input
+              onClick={handleTerms}
+              name="accept"
+              type="checkbox"
+              className="mr-2"
+            />
             <span className="text-sm text-gray-600">
               Accept{" "}
               <Link to="/terms" className="text-blue-500">
@@ -87,6 +118,7 @@ const Register = () => {
         </div>
         <button
           type="submit"
+          disabled={!accepted}
           className="w-full bg-gray-500 text-white p-5 rounded-md hover:bg-gray-600"
         >
           Register

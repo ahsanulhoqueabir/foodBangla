@@ -1,10 +1,20 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../authprovider/AuthProvider";
+import LoaderPage from "../Pages/LoaderPage";
+import { toast } from "react-toastify";
 
 const Header = () => {
-  const { user } = useContext(authContext);
-  console.log(user);
+  const { user, logout, loading } = useContext(authContext);
+//   if (loading) {
+//     return <LoaderPage />;
+//   }
+  const handleLogout = () => {
+    logout()
+      .then(toast("Successfully Logout"))
+      .catch((err) => toast.error(err));
+  };
+
   return (
     <div className="navbar bg-blue-100 lg:px-32">
       <div className="navbar-start">
@@ -85,20 +95,25 @@ const Header = () => {
         {user ? (
           <div className="flex items-center gap-3">
             <img
-              className="h-10 rounded-full "
-              title={user.name}
-              src={user.img}
+              className="h-10 w-10 object-cover rounded-full "
+              title={user.displayName}
+              src={user.photoURL}
               alt=""
             />
-             <Link className="px-6 py-2 bg-green-300 hover:bg-green-400 text-lg font-semibold rounded-full ">
+            <Link
+              onClick={handleLogout}
+              className="px-6 py-2 bg-green-300 hover:bg-green-400 text-lg font-semibold rounded-full "
+            >
               Log Out
             </Link>{" "}
-
           </div>
         ) : (
           <>
             {" "}
-            <Link to='/login' className="px-8 py-2 bg-green-300 hover:bg-green-400 text-lg font-semibold rounded-full ">
+            <Link
+              to="/login"
+              className="px-8 py-2 bg-green-300 hover:bg-green-400 text-lg font-semibold rounded-full "
+            >
               Log In
             </Link>{" "}
           </>
