@@ -17,17 +17,19 @@ import { app } from "../firebase/firebase.config";
 export const authContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-
-    /* ----------------------------comment----------------------------------------*/
+  /* ----------------------------comment----------------------------------------*/
   // all state will be there
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [thumb,setThum] = useState([])
+  const [thumb, setThum] = useState([]);
+  const [dietDay, setDietDay] = useState("MONDAY");
+  const [dietData, setDietData] = useState([]);
+  console.log(dietData[0]);
 
   /* --------------------------- comment --------------------------------------------*/
-//   all useeffect 
- //   funtion for checking logged in user
- useEffect(() => {
+  //   all useeffect
+  //   funtion for checking logged in user
+  useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -37,7 +39,19 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-    /* ------------------------------ comment -----------------------------------------*/
+  useEffect(() => {
+    fetch("http://localhost:3000/thumb")
+      .then((res) => res.json())
+      .then((data) => setThum(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/dietplan")
+      .then((res) => res.json())
+      .then((data) => setDietData(data));
+  }, []);
+
+  /* ------------------------------ comment -----------------------------------------*/
   //   funtion for create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -67,15 +81,13 @@ const AuthProvider = ({ children }) => {
   const githubLogin = () => {
     return signInWithPopup(auth, githubProvider);
   };
- 
+
   //   funtion for logout
   const logout = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  
-  
   const authInfo = {
     user,
     createUser,
@@ -85,6 +97,9 @@ const AuthProvider = ({ children }) => {
     logout,
     LogIn,
     loading,
+    thumb,
+    dietDay,
+    setDietDay,
   };
   return (
     <authContext.Provider value={authInfo}>{children}</authContext.Provider>

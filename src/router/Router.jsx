@@ -1,10 +1,10 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import LoaderPage from "../Pages/LoaderPage";
 import Home from "../Pages/Home";
+import DietPlan from "../component/DietPlan";
 
 const route = createBrowserRouter([
   {
@@ -14,6 +14,12 @@ const route = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
+        children:[
+            {
+                path: '/',
+                element: <DietPlan/>
+            }
+        ]
       },
       {
         path: "/blog",
