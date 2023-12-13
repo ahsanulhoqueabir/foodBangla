@@ -20,7 +20,7 @@ const Login = () => {
       .catch((err) => toast(err.message));
   };
   return (
-    <div className="mt-10 p-10 pt-20 bg-blue-100 rounded-md  lg:w-[35%] m-auto shadow-xl">
+    <div className="my-10 mx-5 p-10 pt-20 bg-blue-100 rounded-md  lg:w-[35%] lg:mx-auto shadow-xl">
       <h2 className="text-center text-4xl font-bold">Login your account</h2>
       <hr className="border-1 border-black my-10" />
       <form autoComplete="off" onSubmit={handleLogin} className="">

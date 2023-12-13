@@ -7,7 +7,7 @@ const BMI = () => {
     console.log(form.activity.value);
   };
   return (
-    <div className="flex gap-10 py-16 lg:px-16">
+    <div className="flex px-4 flex-col-reverse lg:flex-row gap-10 py-16 lg:px-16">
       <div className="w-full">
         <h2 className="text-4xl pb-3">Calculate Your BMI</h2>
         <p>
@@ -96,29 +96,29 @@ const BMI = () => {
           </form>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full ">
         <h2 className="text-4xl">BMI Calculator Chart</h2>
-        <div className="divide-y-2 w-full p-10 flex flex-col justify-center text-2xl">
+        <div className="divide-y-2 w-full lg:p-10 flex flex-col justify-center text-lg mt-5 lg:text-2xl">
           <p className=" divide-x-2 flex ">
-            <p className="px-10 py-3 w-full">BMI</p>
-            <p className="px-10 py-3 w-full">Weight status</p>
+            <p className="px-3 lg:px-10 py-3 w-full">BMI</p>
+            <p className="px-3 lg:px-10 py-3 w-full">Weight status</p>
           </p>
           {/* p.divide-x-2.flex>p.px-10*2 */}
           <p className="divide-x-2 flex">
-            <p className="px-10 py-3 w-full">Below 18.5</p>
-            <p className="px-10 py-3 w-full">Underweight</p>
+            <p className="px-3 lg:px-10 py-3 w-full">Below 18.5</p>
+            <p className="px-3 lg:px-10 py-3 w-full">Underweight</p>
           </p>
           <p className="divide-x-2 flex">
-            <p className="px-10 py-3 w-full">18.5 – 24.9</p>
-            <p className="px-10 py-3 w-full">Healthy</p>
+            <p className="px-3 lg:px-10 py-3 w-full">18.5 – 24.9</p>
+            <p className="px-3 lg:px-10 py-3 w-full">Healthy</p>
           </p>
           <p className="divide-x-2 flex">
-            <p className="px-10 py-3 w-full">25.0 – 29.9</p>
-            <p className="px-10 py-3 w-full">Overweight</p>
+            <p className="px-3 lg:px-10 py-3 w-full">25.0 – 29.9</p>
+            <p className="px-3 lg:px-10 py-3 w-full">Overweight</p>
           </p>
           <p className="divide-x-2 flex">
-            <p className="px-10 w-full py-3">30.0 and Above</p>
-            <p className="px-10 w-full py-3">Obese</p>
+            <p className="px-3 lg:px-10 w-full py-3">30.0 and Above</p>
+            <p className="px-3 lg:px-10 w-full py-3">Obese</p>
           </p>
         </div>
       </div>

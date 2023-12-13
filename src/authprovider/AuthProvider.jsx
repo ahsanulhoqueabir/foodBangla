@@ -22,9 +22,10 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [thumb, setThum] = useState([]);
-  const [dietDay, setDietDay] = useState("MONDAY");
   const [dietData, setDietData] = useState([]);
-  console.log(dietData[0]);
+  const [showDiet, setShowDiet] = useState([]);
+
+  // console.log(dietData[0]);
 
   /* --------------------------- comment --------------------------------------------*/
   //   all useeffect
@@ -88,6 +89,13 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // funtion for show diet plan
+  const showDietPlan = (id) => {
+    const dayData = dietData.find((day) => day.day === id) || 'MONDAY';
+    setShowDiet(dayData);
+    // console.log(dayData);
+  };
+
   const authInfo = {
     user,
     createUser,
@@ -98,8 +106,9 @@ const AuthProvider = ({ children }) => {
     LogIn,
     loading,
     thumb,
-    dietDay,
-    setDietDay,
+    dietData,
+    showDietPlan,
+    showDiet
   };
   return (
     <authContext.Provider value={authInfo}>{children}</authContext.Provider>

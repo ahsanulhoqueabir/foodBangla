@@ -7,5 +7,10 @@
 
 }
 .myBtn{
-    @apply  bg-green-300 hover:bg-green-500 text-black rounded-md h-10 py-3 w-fit px-10 transition-colors duration-500 flex items-center 	
+    @apply  bg-green-300 hover:bg-green-500 text-black rounded-md h-10 py-3 w-fit px-2 lg:px-10 transition-colors duration-500 flex items-center 	
 }
+
+#my-tooltip{
+    @apply  bg-white z-20 text-black px-10 font-semibold 
+}
+

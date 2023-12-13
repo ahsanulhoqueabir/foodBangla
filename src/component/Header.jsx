@@ -3,12 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../authprovider/AuthProvider";
 import LoaderPage from "../Pages/LoaderPage";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user, logout, loading } = useContext(authContext);
-//   if (loading) {
-//     return <LoaderPage />;
-//   }
+  //   if (loading) {
+  //     return <LoaderPage />;
+  //   }
   const handleLogout = () => {
     logout()
       .then(toast("Successfully Logout"))
@@ -94,9 +95,12 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-3">
+            <Tooltip id="my-tooltip" />
             <img
               className="h-10 w-10 object-cover rounded-full "
-              title={user.displayName}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user.displayName}
+              data-tooltip-place="left"
               src={user.photoURL}
               alt=""
             />

@@ -32,7 +32,7 @@ const Register = () => {
       form.reset()
   };
   return (
-    <div className="mt-10 p-10 py-20 bg-blue-100 rounded-md lg:w-[35%]  mx-auto shadow-xl">
+    <div className="lg:mt-10 my-16 mx-5 p-10 py-20 bg-blue-100 rounded-md lg:w-[35%]  lg:mx-auto shadow-xl">
       <h2 className="text-center text-4xl font-bold">Register your account</h2>
       <hr className="border-1 border-black my-10" />
       <form onSubmit={handleCreateUser}>
