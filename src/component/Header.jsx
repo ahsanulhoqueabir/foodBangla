@@ -62,6 +62,17 @@ const Header = () => {
               {" "}
               Blog
             </NavLink>
+            <NavLink
+            to="/FavouriteRecipes"
+            className={({ isActive }) =>
+              isActive
+                ? "text-lg font-semibold text-blue-600"
+                : "text-lg font-semibold"
+            }
+          >
+            {" "}
+            Favourites
+          </NavLink>
           </div>
         </div>
         <Link className="px-5 font-bold py-2 text-xl">foodBangla</Link>
@@ -89,6 +100,17 @@ const Header = () => {
           >
             {" "}
             Blog
+          </NavLink>
+          <NavLink
+            to="/FavouriteRecipes"
+            className={({ isActive }) =>
+              isActive
+                ? "text-lg font-semibold text-blue-600"
+                : "text-lg font-semibold"
+            }
+          >
+            {" "}
+            Favourites
           </NavLink>
         </div>
       </div>

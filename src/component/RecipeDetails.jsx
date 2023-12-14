@@ -3,12 +3,15 @@ import { FaCheckCircle, FaRegStar, FaStar } from "react-icons/fa";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import Rating from "react-rating";
 import { toast } from "react-toastify";
+import { addToLocalStorage } from "../utilities/fakeDB";
 
 const RecipeDetails = ({ item, name }) => {
   const [fav, setFav] = useState(false);
-  const handleFav = (name) => {
+  const handleFav = (name,id) => {
     toast(` ${name} added as your favourite`);
     setFav(!fav);
+    console.log('id: ',id);
+    addToLocalStorage(id)
   };
   return (
     <div
@@ -66,7 +69,7 @@ const RecipeDetails = ({ item, name }) => {
           />{" "}
           {item.recipeRatings}
         </span>
-        <button disabled={fav} onClick={() => handleFav(item.recipeName)}>
+        <button disabled={fav} onClick={() => handleFav(item.recipeName,item.recipeID)}>
           {/* className="text-4xl text-bleack cursor-pointer" */}
           <FaHeartCirclePlus
             className={`text-4xl cursor-pointer ${

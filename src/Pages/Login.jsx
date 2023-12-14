@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../component/SocialLogin";
 import { authContext } from "../authprovider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { LogIn } = useContext(authContext);
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from.pathname || "/";
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +17,7 @@ const Login = () => {
     LogIn(email, password)
       .then((user) => {
         toast(`Welcome Back ${user.user.displayName}`);
-        navigate('/')
+        navigate(from, { replace: true });
       })
       .catch((err) => toast(err.message));
   };

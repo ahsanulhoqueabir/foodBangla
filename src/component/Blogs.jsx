@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Blogs = () => {
   return (
-    <div className="grid grid-cols-2 gap-5 lg:px-20 lg:py-20">
+    <div className="grid grid-cols-1 px-3 lg:grid-cols-2 gap-5 lg:px-20 py-10 lg:py-20">
       <div className="flex gap-5 flex-col bg-blue-100 rounded-lg shadow-xl ">
         <img
-          className="p-5 rounded-lg h-96"
+          className="p-5 rounded-lg h-52 lg:h-96"
           src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*SX2dWWAPDrLfGbNyoHJThw.png"
           alt=""
         />
@@ -22,7 +22,7 @@ const Blogs = () => {
       </div>
       <div className="flex gap-5 flex-col bg-blue-100 rounded-lg shadow-xl ">
         <img
-          className="p-5 rounded-lg h-96"
+          className="p-5 rounded-lg h-52 lg:h-96"
           src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*Y1RE_flJEuySBI-crC0RFg.jpeg"
           alt=""
         />
@@ -37,7 +37,7 @@ const Blogs = () => {
       </div>
       <div className="flex gap-5 flex-col bg-blue-100 rounded-lg shadow-xl ">
         <img
-          className="p-5 rounded-lg h-96"
+          className="p-5 rounded-lg h-52 lg:h-96"
           src="https://procoders.tech/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/03/Express-JS-vs-Node-JS_-Why-its-Time-to-Migrate_-1.png.webp"
           alt=""
         />
@@ -52,7 +52,7 @@ const Blogs = () => {
       </div>
       <div className="flex gap-5 flex-col bg-blue-100 rounded-lg shadow-xl ">
         <img
-          className="p-5 rounded-lg h-96"
+          className="p-5 rounded-lg h-52 lg:h-96"
           src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*efj49Y4ARtOhLC0N"
           alt=""
         />

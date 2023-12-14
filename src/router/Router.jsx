@@ -13,6 +13,8 @@ import Blogs from "../component/Blogs";
 import Blog2 from "../component/Blog2";
 import Blog3 from "../component/Blog3";
 import Blog4 from "../component/Blog4";
+import FavRecipes from "../Pages/FavRecipes";
+import PrivateRoute from "./PrivateRoute";
 
 const route = createBrowserRouter([
   {
@@ -32,7 +34,11 @@ const route = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog />,
+        element: (
+          <PrivateRoute>
+            <Blog />
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/blog",
@@ -71,8 +77,20 @@ const route = createBrowserRouter([
       },
       {
         path: "/chefs/:id",
-        element: <ChefDetails />,
+        element: (
+          <PrivateRoute>
+            <ChefDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) => params.id,
+      },
+      {
+        path: "FavouriteRecipes",
+        element: (
+          <PrivateRoute>
+            <FavRecipes />
+          </PrivateRoute>
+        ),
       },
       {
         path: "*",
