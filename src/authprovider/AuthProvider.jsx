@@ -24,11 +24,11 @@ const AuthProvider = ({ children }) => {
   const [thumb, setThum] = useState([]);
   const [dietData, setDietData] = useState([]);
   const [showDiet, setShowDiet] = useState([]);
+  const [chefs, setChefs] = useState([]);
 
   // console.log(dietData[0]);
 
-  /* --------------------------- comment --------------------------------------------*/
-  //   all useeffect
+  /* ------------------------------------ comment : all useeffect --------------------------------------------*/
   //   funtion for checking logged in user
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (user) => {
@@ -50,6 +50,11 @@ const AuthProvider = ({ children }) => {
     fetch("http://localhost:3000/dietplan")
       .then((res) => res.json())
       .then((data) => setDietData(data));
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/chefs")
+      .then((res) => res.json())
+      .then((data) => setChefs(data));
   }, []);
 
   /* ------------------------------ comment -----------------------------------------*/
@@ -91,9 +96,8 @@ const AuthProvider = ({ children }) => {
 
   // funtion for show diet plan
   const showDietPlan = (id) => {
-    const dayData = dietData.find((day) => day.day === id) || 'MONDAY';
+    const dayData = dietData.find((day) => day.day === id) || "MONDAY";
     setShowDiet(dayData);
-    // console.log(dayData);
   };
 
   const authInfo = {
@@ -108,7 +112,8 @@ const AuthProvider = ({ children }) => {
     thumb,
     dietData,
     showDietPlan,
-    showDiet
+    showDiet,
+    chefs,
   };
   return (
     <authContext.Provider value={authInfo}>{children}</authContext.Provider>

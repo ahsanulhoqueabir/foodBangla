@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import Marquee from "react-fast-marquee";
 import { authContext } from "../authprovider/AuthProvider";
 import BMI from "../component/BMI";
+import anim from "../assets/chefsss.json";
 import { NavLink, Outlet } from "react-router-dom";
+import Lottie from "lottie-react";
+import Chefs from "../component/Chefs";
 const Home = () => {
-  const { thumb, showDietPlan } = useContext(authContext);
+  const { thumb, showDietPlan, chefs } = useContext(authContext);
   const handledietday = (e) => {
     showDietPlan(e.target.innerText);
   };
@@ -42,8 +45,17 @@ const Home = () => {
       {/*-----------------------------------------  our chef data ------------------------------------- */}
       <div className="py-10">
         <h2 className="text-center text-4xl">Meet Our Chefs</h2>
+        <div className="flex gap-4 py-10 lg:px-10 relative">
+          <div className="lg:w-[70%] grid grid-cols-3 gap-5">
+            {chefs.map((item) => (
+              <Chefs key={item.chefId} data={item} />
+            ))}
+          </div>
+          <div className="lg:w-[30%] ">
+            <Lottie animationData={anim} className=" sticky top-0"></Lottie>
+          </div>
+        </div>
       </div>
-
 
       {/* ----------------------  bmi calculator ----------------------------------- */}
       <div>

@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 import LoaderPage from "../Pages/LoaderPage";
 import Home from "../Pages/Home";
 import DietPlan from "../component/DietPlan";
+import ChefDetails from "../Pages/ChefDetails";
 
 const route = createBrowserRouter([
   {
@@ -13,13 +14,13 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>,
-        children:[
-            {
-                path: '/',
-                element: <DietPlan/>
-            }
-        ]
+        element: <Home />,
+        children: [
+          {
+            path: "/",
+            element: <DietPlan />,
+          },
+        ],
       },
       {
         path: "/blog",
@@ -34,9 +35,14 @@ const route = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: 'loader',
-        element: <LoaderPage/>
-      }
+        path: "loader",
+        element: <LoaderPage />,
+      },
+      {
+        path: "/chefs/:id",
+        element: <ChefDetails />,
+        loader: ({ params }) => params.id,
+      },
     ],
   },
 ]);
