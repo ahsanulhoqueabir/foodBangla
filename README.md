@@ -69,11 +69,10 @@ This will open a new browser window displaying your application at http://localh
 You can clone this repository by running following command in terminal/command prompt:
 
 ``` 
-https://github.com/ahsanulhoqueabir/SkillSync-react.git 
-
+https://github.com/ahsanulhoqueabir/foodBangla.git
 ``` 
 
-or download zip file [from here](https://github.com/ahsanulhoqueabir/SkillSync-react)
+or download zip file [from here](https://github.com/ahsanulhoqueabir/foodBangla)
 
 
 <!-- Social Media Link -->
