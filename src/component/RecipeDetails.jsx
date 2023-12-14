@@ -18,7 +18,7 @@ const RecipeDetails = ({ item, name }) => {
       <div className="lg:p-5 ">
         <img
           src={item.recipePhoto}
-          className="h-96 w-full  rounded-2xl shadow-xl object-cover"
+          className="lg:h-96 h-64 w-full  rounded-2xl shadow-xl object-cover"
           alt={item.recipeName}
         />
       </div>

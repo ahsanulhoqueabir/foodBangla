@@ -45,8 +45,8 @@ const Home = () => {
       {/*-----------------------------------------  our chef data ------------------------------------- */}
       <div className="py-10">
         <h2 className="text-center text-4xl">Meet Our Chefs</h2>
-        <div className="flex gap-4 py-10 lg:px-10 relative">
-          <div className="lg:w-[70%] grid grid-cols-3 gap-5">
+        <div className="flex flex-col-reverse lg:flex-row gap-4 py-10 lg:px-10 relative">
+          <div className="lg:w-[70%] grid lg:grid-cols-3 gap-5 px-2">
             {chefs.map((item) => (
               <Chefs key={item.chefId} data={item} />
             ))}

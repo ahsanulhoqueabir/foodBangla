@@ -25,6 +25,10 @@ const AuthProvider = ({ children }) => {
   const [dietData, setDietData] = useState([]);
   const [showDiet, setShowDiet] = useState([]);
   const [chefs, setChefs] = useState([]);
+  const [blog1, setBlog1] = useState([]);
+  const [blog2, setBlog2] = useState([]);
+  const [blog3, setBlog3] = useState([]);
+  const [blog4, setBlog4] = useState([]);
 
   // console.log(dietData[0]);
 
@@ -41,20 +45,40 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/thumb")
+    fetch("https://food-rosy-six.vercel.app/thumb")
       .then((res) => res.json())
       .then((data) => setThum(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/dietplan")
+    fetch("https://food-rosy-six.vercel.app/dietplan")
       .then((res) => res.json())
       .then((data) => setDietData(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/chefs")
+    fetch("https://food-rosy-six.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data));
+  }, []);
+  useEffect(() => {
+    fetch("https://food-rosy-six.vercel.app/blog1")
+      .then((res) => res.json())
+      .then((data) => setBlog1(data));
+  }, []);
+  useEffect(() => {
+    fetch("https://food-rosy-six.vercel.app/blog2")
+      .then((res) => res.json())
+      .then((data) => setBlog2(data));
+  }, []);
+  useEffect(() => {
+    fetch("https://food-rosy-six.vercel.app/blog3")
+      .then((res) => res.json())
+      .then((data) => setBlog3(data));
+  }, []);
+  useEffect(() => {
+    fetch("https://food-rosy-six.vercel.app/blog4")
+      .then((res) => res.json())
+      .then((data) => setBlog4(data));
   }, []);
 
   /* ------------------------------ comment -----------------------------------------*/
@@ -114,6 +138,10 @@ const AuthProvider = ({ children }) => {
     showDietPlan,
     showDiet,
     chefs,
+    blog1,
+    blog2,
+    blog3,
+    blog4,
   };
   return (
     <authContext.Provider value={authInfo}>{children}</authContext.Provider>

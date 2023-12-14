@@ -21,3 +21,8 @@
     background-color: aquamarine;
 }
 
+.myBorder2{
+    border-width: 1px;
+    border-style: solid;
+    border-color: gainsboro;
+}

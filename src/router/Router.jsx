@@ -7,6 +7,12 @@ import Home from "../Pages/Home";
 import DietPlan from "../component/DietPlan";
 import ChefDetails from "../Pages/ChefDetails";
 import ErrorPage from "../Pages/ErrorPage";
+import Blog from "../Pages/Blog";
+import Blog1 from "../component/Blog1";
+import Blogs from "../component/Blogs";
+import Blog2 from "../component/Blog2";
+import Blog3 from "../component/Blog3";
+import Blog4 from "../component/Blog4";
 
 const route = createBrowserRouter([
   {
@@ -26,7 +32,30 @@ const route = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <h1>Blog</h1>,
+        element: <Blog />,
+        children: [
+          {
+            path: "/blog",
+            element: <Blogs />,
+          },
+
+          {
+            path: "/blog/blog1",
+            element: <Blog1 />,
+          },
+          {
+            path: "/blog/blog2",
+            element: <Blog2 />,
+          },
+          {
+            path: "/blog/blog3",
+            element: <Blog3 />,
+          },
+          {
+            path: "/blog/blog4",
+            element: <Blog4 />,
+          },
+        ],
       },
       {
         path: "/login",
