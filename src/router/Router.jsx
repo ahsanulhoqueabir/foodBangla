@@ -6,11 +6,13 @@ import LoaderPage from "../Pages/LoaderPage";
 import Home from "../Pages/Home";
 import DietPlan from "../component/DietPlan";
 import ChefDetails from "../Pages/ChefDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
 const route = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -42,6 +44,10 @@ const route = createBrowserRouter([
         path: "/chefs/:id",
         element: <ChefDetails />,
         loader: ({ params }) => params.id,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

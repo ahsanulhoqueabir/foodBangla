@@ -13,7 +13,9 @@
 #my-tooltip{
     @apply  bg-white z-20 text-black px-10 font-semibold 
 }
-
+.myText{
+    @apply animate-pulse bg-gradient-to-r from-teal-600 via-blue-100 to-rose-500 bg-clip-text text-transparent font-black font-mono transition duration-1000
+} 
 .myBorder{
     border-radius:  30% 70% 70% 30% / 30% 30% 70% 70% ;
     background-color: aquamarine;
